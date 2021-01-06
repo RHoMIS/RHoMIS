@@ -1,0 +1,19 @@
+Package: RHoMIS
+Title: Package for Cleaning RHoMIS Data and Calculating Indicators
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Leo",
+           family = "Gorman",
+           role = c("aut", "cre"),
+           email = "leogorman123@gmail.com")
+Description: What the package does (one paragraph).
+License: `use_mit_license()`
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+  tidyverse,
+  dplyr,
+  readr
+  
