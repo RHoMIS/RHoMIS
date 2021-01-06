@@ -132,12 +132,12 @@ which_hdds_type_used <- function(data_set){
   Fourteen_Groups<-c("grains", "roots_tubers", "pulses", "nuts_seeds", "milk", "organ_meat", "meat_poultry", "fish_seafood", "eggs", "green_veg", "vitA_veg", "vitA_fruits", "other_veg", "other_fruits")
 
 
-  if (all(sapply(Ten_groups, function(x) any(grepl(x,colnames(dat_all))))))
+  if (all(sapply(Ten_groups, function(x) any(grepl(x,colnames(data_set))))))
   {
     return(10)
   }
 
-  if (all(sapply(Fourteen_Groups, function(x) any(grepl(x,colnames(dat_all))))))
+  if (all(sapply(Fourteen_Groups, function(x) any(grepl(x,colnames(data_set))))))
   {
     return(14)
   }
