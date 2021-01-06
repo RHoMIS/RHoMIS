@@ -14,6 +14,7 @@
 #' @param path The file-path where the RHoMIS raw data is located
 #'
 #' @return Data-frame of rhomis dataset.
+#' @export
 #'
 #' @examples
 #' df <- read_raw_data('C:/User/me/my_data.csv')
