@@ -118,6 +118,8 @@ shorten_column_names <- function(data_set){
 #' @param data_set The dataset where we need to identify which hdds type used
 #'
 #' @return Returns '10' if 10 groups were used. Returns '14' if 14 groups were used.
+#' @export
+#'
 #'
 #' @examples
 #' hdds_type <- which_hdds_type_used(data_set)
