@@ -69,7 +69,7 @@ add_project_id <- function(data_set, project_id){
 #' @examples
 #' df <- shorten_column_names(dataset)
 shorten_column_names <- function(data_set){
-  core_cols <- colnames(dat)
+  core_cols <- colnames(data_set)
 
   core_cols_new<-core_cols
   b=array(0,20)
@@ -104,9 +104,9 @@ shorten_column_names <- function(data_set){
     }
   }
 
-  colnames(dat) <- core_cols_new
+  colnames(data_set) <- core_cols_new
 
-  return(dat)
+  return(data_set)
 
 
 }
