@@ -21,7 +21,7 @@
 #'
 read_raw_data <- function(path)
 {
-  read_csv(path, na = c("n/a","<NA>", "999", 'NA'))
+  read_csv(path, na = c("n/a","<NA>", "999", 'NA'), col_types = cols())
 }
 #-------------------------------------------------------------------------
 #' Add Project ID
