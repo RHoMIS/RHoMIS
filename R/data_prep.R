@@ -1,10 +1,17 @@
-
-
+#-------------------------------------------------------------------------
+#-------------------------------------------------------------------------
+#-------------------------------------------------------------------------
+#' RHoMIS Data Cleaning Functions
+#'
+#' A series of functions that can be used to clean RHoMIS data.
+#-------------------------------------------------------------------------
+#-------------------------------------------------------------------------
+#-------------------------------------------------------------------------
 #' read raw rhomis data
 #'
 #' A function for loading raw RHoMIS data.
 #'
-#' @param path
+#' @param path The file-path where the RHoMIS raw data is located
 #'
 #' @return Data-frame of rhomis dataset.
 #'
@@ -13,18 +20,15 @@
 #'
 read_raw_data <- function(path)
 {
-
   read_csv(path, na = c("n/a","<NA>", "999", 'NA'))
 }
-
-
-
+#-------------------------------------------------------------------------
 #' Add Project ID
 #'
 #' Adds a Project ID to the RHoMIS data. The ID comes in the form AA_BBB_YYYY.
 #' Where AA is the two letter ISO country-code (https://www.iban.com/country-codes)
 #' Where BBB is a three letter code assigned to the project being processed
-#' YYYY is the year the survey was conducted
+#' Where YYYY is the year the survey was conducted
 #'
 #' @param data_set The data set being processed
 #' @param project_id The ID being assigned to the project (see function description)
@@ -34,13 +38,22 @@ read_raw_data <- function(path)
 #'
 #' @examples
 #' df <- add_project_id(df, "KE_TST_2016")
-#'
 add_project_id <- function(data_set, project_id){
 
+  YEAR<- gsub('.*_','', project_id)
+  COUNTRY_CODE<- gsub('_.*','', project_id)
+  PROJECT<- gsub(paste0('_',unique(YEAR)), '', project_id)
+  PROJECT<- gsub(paste0(unique(COUNTRY_CODE),'_'), '', PROJECT)
+
+  data_set$project_ID <- project_id
+  data_set$COUNTRY_CODE <- COUNTRY_CODE
+  data_set$YEAR <- YEAR
+  data_set$PROJECT <- PROJECT
+
+  return(data_set)
+
 }
-
-
-
+#-------------------------------------------------------------------------
 #' Shorten Column Names
 #'
 #' A function to shorten the column names of RHoMIS data.
@@ -49,10 +62,11 @@ add_project_id <- function(data_set, project_id){
 #'
 #' @param data_set The dataset that needs columns shortened
 #'
-#' @return
+#' @return Returns the dataframe with the columns shortened
 #' @export
 #'
 #' @examples
+#' df <- shorten_column_names(dataset)
 shorten_column_names <- function(data_set){
   core_cols <- colnames(dat)
 
@@ -95,7 +109,7 @@ shorten_column_names <- function(data_set){
 
 
 }
-
+#-------------------------------------------------------------------------
 #' Which HDDS
 #'
 #' RHoMIS has used two indicators for HDDS. One made up of 10 food groups, and one made up of 14 food-groups
@@ -104,8 +118,8 @@ shorten_column_names <- function(data_set){
 #'
 #' @return Returns '10' if 10 groups were used. Returns '14' if 14 groups were used.
 #'
-#'
 #' @examples
+#' hdds_type <- which_hdds_type_used(data_set)
 which_hdds_type_used <- function(data_set){
 
   Ten_groups_true_false<-0
@@ -126,5 +140,20 @@ which_hdds_type_used <- function(data_set){
   }
 
 }
+#-------------------------------------------------------------------------
+#' Title
+#'
+#' @param data_set
+#'
+#' @return
+#' @export
+#'
+#' @examples
+age_loop_calculation <- function(data_set){
+
+}
+
+
+
 
 
