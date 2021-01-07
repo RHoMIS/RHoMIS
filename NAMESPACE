@@ -3,6 +3,8 @@
 export(add_project_id)
 export(age_loop_calculation)
 export(clean_gender_ownership_columns)
+export(find_unique_crops)
+export(find_unique_livestock)
 export(number_of_crop_loops)
 export(read_raw_data)
 export(shorten_column_names)

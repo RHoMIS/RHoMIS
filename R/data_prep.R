@@ -51,6 +51,7 @@ add_project_id <- function(data_set, project_id){
   data_set$YEAR <- YEAR
   data_set$PROJECT <- PROJECT
 
+  data_set <- shorten_column_names(data_set)
   return(data_set)
 
 }
@@ -242,12 +243,28 @@ unique_values_for_survey <- function(dataset, columns){
   return(unique_values)
 }
 
+#' Find unique crops
+#'
+#' @param dataset
+#'
+#' @return
+#' @export
+#'
+#' @examples
 find_unique_crops <-function(dataset){
   crop_columns <- c("crop_name_1","crop_name_2","crop_name_3","crop_name_4","crop_name_5","crop_name_6","crop_name_7","crop_name_8","crops_other1","crops_other2","crops_other3")
   crop_name_columns_in_data_set <- crop_columns[crop_columns %in% colnames(data_set)]
   return(unique_values_for_survey(dataset,crop_name_columns_in_data_set))
 }
 
+#' Find unique livestock
+#'
+#' @param dataset
+#'
+#' @return
+#' @export
+#'
+#' @examples
 find_unique_livestock <-function(dataset){
   livestock_columns <- c("livestock_name_1","livestock_name_2","livestock_name_3","livestock_name_4","livestock_name_5","livestock_other1","livestock_other2", "livestock_other3")
   livestock_columns_in_data_set <- livestock_columns[livestock_columns %in% colnames(data_set)]
