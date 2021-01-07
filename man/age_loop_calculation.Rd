@@ -7,7 +7,7 @@
 age_loop_calculation(data_set)
 }
 \arguments{
-\item{data_set}{the dataset that you want to convert}
+\item{data_set}{the data_set that you want to convert}
 }
 \value{
 Returns a data dataframe with household members placed into categories e.g. "children aged 4 to 10"

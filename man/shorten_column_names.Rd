@@ -7,16 +7,16 @@
 shorten_column_names(data_set)
 }
 \arguments{
-\item{data_set}{The dataset that needs columns shortened}
+\item{data_set}{The data_set that needs columns shortened}
 }
 \value{
 Returns the dataframe with the columns shortened
 }
 \description{
 A function to shorten the column names of RHoMIS data.
-Many of the raw datasets in RHoMIS have column names in the format "section/group.xxx/repeat.1/crop_name".
+Many of the raw data_sets in RHoMIS have column names in the format "section/group.xxx/repeat.1/crop_name".
 This would be converted in the format "crop_name_1".
 }
 \examples{
-df <- shorten_column_names(dataset)
+df <- shorten_column_names(data_set)
 }

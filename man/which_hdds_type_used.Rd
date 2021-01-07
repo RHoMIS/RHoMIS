@@ -7,7 +7,7 @@
 which_hdds_type_used(data_set)
 }
 \arguments{
-\item{data_set}{The dataset where we need to identify which hdds type used}
+\item{data_set}{The data_set where we need to identify which hdds type used}
 }
 \value{
 Returns '10' if 10 groups were used. Returns '14' if 14 groups were used.

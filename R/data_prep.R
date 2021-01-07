@@ -13,7 +13,7 @@
 #'
 #' @param path The file-path where the RHoMIS raw data is located
 #'
-#' @return Data-frame of rhomis dataset.
+#' @return Data-frame of rhomis data_set.
 #' @export
 #'
 #' @examples
@@ -59,16 +59,16 @@ add_project_id <- function(data_set, project_id){
 #' Shorten Column Names
 #'
 #' A function to shorten the column names of RHoMIS data.
-#' Many of the raw datasets in RHoMIS have column names in the format "section/group.xxx/repeat.1/crop_name".
+#' Many of the raw data_sets in RHoMIS have column names in the format "section/group.xxx/repeat.1/crop_name".
 #' This would be converted in the format "crop_name_1".
 #'
-#' @param data_set The dataset that needs columns shortened
+#' @param data_set The data_set that needs columns shortened
 #'
 #' @return Returns the dataframe with the columns shortened
 #' @export
 #'
 #' @examples
-#' df <- shorten_column_names(dataset)
+#' df <- shorten_column_names(data_set)
 shorten_column_names <- function(data_set){
   core_cols <- colnames(data_set)
 
@@ -116,7 +116,7 @@ shorten_column_names <- function(data_set){
 #'
 #' RHoMIS has used two indicators for HDDS. One made up of 10 food groups, and one made up of 14 food-groups
 #'
-#' @param data_set The dataset where we need to identify which hdds type used
+#' @param data_set The data_set where we need to identify which hdds type used
 #'
 #' @return Returns '10' if 10 groups were used. Returns '14' if 14 groups were used.
 #' @export
@@ -147,7 +147,7 @@ which_hdds_type_used <- function(data_set){
 #-------------------------------------------------------------------------
 #' Age loop conversion
 #'
-#' @param data_set the dataset that you want to convert
+#' @param data_set the data_set that you want to convert
 #'
 #' @return Returns a data dataframe with household members placed into categories e.g. "children aged 4 to 10"
 #' @export
@@ -212,13 +212,13 @@ age_loop_calculation <- function(data_set){
 #'
 #'A function used to find the number of crop loops in the survey
 #'
-#' @param data_set The dataset in question
+#' @param data_set The data_set in question
 #'
 #' @return Returns a single number
 #' @export
 #'
 #' @examples
-#' no_crop <- number_of_crop_loops(dataset
+#' no_crop <- number_of_crop_loops(data_set
 #' )
 number_of_crop_loops <- function(data_set){
   number_of_crop_loops<-length(grep("crop_sold_income_", colnames(dat_all)))
@@ -234,8 +234,8 @@ number_of_crop_loops <- function(data_set){
 #' @export
 #'
 #' @examples
-unique_values_for_survey <- function(dataset, columns){
-  subset <- dataset[,columns]
+unique_values_for_survey <- function(data_set, columns){
+  subset <- data_set[,columns]
   all_values <- gather(subset)
   all_values <- all_values$value
   unique_values <- unique(all_values)
@@ -245,30 +245,30 @@ unique_values_for_survey <- function(dataset, columns){
 
 #' Find unique crops
 #'
-#' @param dataset
+#' @param data_set
 #'
 #' @return
 #' @export
 #'
 #' @examples
-find_unique_crops <-function(dataset){
+find_unique_crops <-function(data_set){
   crop_columns <- c("crop_name_1","crop_name_2","crop_name_3","crop_name_4","crop_name_5","crop_name_6","crop_name_7","crop_name_8","crops_other1","crops_other2","crops_other3")
   crop_name_columns_in_data_set <- crop_columns[crop_columns %in% colnames(data_set)]
-  return(unique_values_for_survey(dataset,crop_name_columns_in_data_set))
+  return(unique_values_for_survey(data_set,crop_name_columns_in_data_set))
 }
 
 #' Find unique livestock
 #'
-#' @param dataset
+#' @param data_set
 #'
 #' @return
 #' @export
 #'
 #' @examples
-find_unique_livestock <-function(dataset){
+find_unique_livestock <-function(data_set){
   livestock_columns <- c("livestock_name_1","livestock_name_2","livestock_name_3","livestock_name_4","livestock_name_5","livestock_other1","livestock_other2", "livestock_other3")
   livestock_columns_in_data_set <- livestock_columns[livestock_columns %in% colnames(data_set)]
-  return(unique_values_for_survey(dataset,crop_name_columns_in_data_set))
+  return(unique_values_for_survey(data_set,crop_name_columns_in_data_set))
 }
 
 #-------------------------------------------------------------------------

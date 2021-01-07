@@ -10,7 +10,7 @@ read_raw_data(path)
 \item{path}{The file-path where the RHoMIS raw data is located}
 }
 \value{
-Data-frame of rhomis dataset.
+Data-frame of rhomis data_set.
 }
 \description{
 A series of functions that can be used to clean RHoMIS data.
