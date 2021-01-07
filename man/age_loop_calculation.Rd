@@ -2,16 +2,20 @@
 % Please edit documentation in R/data_prep.R
 \name{age_loop_calculation}
 \alias{age_loop_calculation}
-\title{Title}
+\title{Age loop conversion}
 \usage{
 age_loop_calculation(data_set)
 }
 \arguments{
-\item{data_set}{}
+\item{data_set}{the dataset that you want to convert}
 }
 \value{
-
+Returns a data dataframe with household members placed into categories e.g. "children aged 4 to 10"
 }
 \description{
-Title
+Age loop conversion
+}
+\examples{
+
+df <- age_loop_calculation(data_set)
 }

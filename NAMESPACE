@@ -2,6 +2,9 @@
 
 export(add_project_id)
 export(age_loop_calculation)
+export(clean_gender_ownership_columns)
+export(number_of_crop_loops)
 export(read_raw_data)
 export(shorten_column_names)
+export(unique_values_for_survey)
 export(which_hdds_type_used)
